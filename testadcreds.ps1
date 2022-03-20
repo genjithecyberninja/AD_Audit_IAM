@@ -1,0 +1,1 @@
+﻿Start-Process -FilePath cmd.exe /c -Credential (Get-Credential -UserName $username -Message 'Test Credential')
