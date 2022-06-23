@@ -50,8 +50,4 @@ Get-ADGroupMember -identity "Enterprise Admins" | select distinguishedName,sAMAc
 Get-ADGroupMember -identity "Domain Admins" | select distinguishedName,sAMAccountName | Export-Csv -force -NoTypeInformation -path "$path\AD_Groups_DA_$date.csv"
 
 # Export all users in AD Administrators OU
-Get-ADUser -SearchBase “OU=Administrators,DC=domain,DC=local” -filter * -properties $properties | Select-Object $properties | Export-Csv -force -NoTypeInformation -path "$path\AD_OU_Report_$date.csv"
-
-# Export all users in AD UserAccounts OU
-Get-ADUser -SearchBase “OU=UserAccounts,DC=domain,DC=local” -filter * -properties $properties | Select-Object $properties | Export-Csv -force -NoTypeInformation -path "$path\AD_Report_$date.csv"
-   
+Get-ADUser -SearchBase “OU=Administrators,DC=domain,DC=local” -filter * -properties $properties | Select-Object $properties | Export-Csv -force -NoTypeInformation -path "$path\AD_OU_Admins_$date.csv"
